@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Class drop-in",
+        "price": "39.00",
+        "comment": "Free riding\nUnlimited equipments\nPersonal trainer\nWeight losing classes\nMonth to mouth\nNo time restriction"
+    },
+    {
+        "id": 2,
+        "name": "12 month unlimited",
+        "price": "99.00",
+        "comment": "Free riding\nUnlimited equipments\nPersonal trainer\nWeight losing classes\nMonth to month\nNo time restriction"
+    },
+    {
+        "id": 3,
+        "name": "6 month unlimited",
+        "price": "59.00",
+        "comment": "Free riding\nUnlimited equipments\nPersonal trainer\nWeight losing classes\nMonth to mouth\nNo time restriction"
+    }
+]

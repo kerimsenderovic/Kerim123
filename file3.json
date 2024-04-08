@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Modern equipment",
+        "comment": "Modern equipment seamlessly integrates cutting-edge technology to enhance efficiency, precision, and productivity, revolutionizing industries and shaping the future of innovation."
+    },
+    {
+        "id": 2,
+        "name": "Healthy nutrition plan",
+        "comment": "Embraces variety, moderation, and mindful eating habits to sustain long-term health benefits."
+    },
+    {
+        "id": 3,
+        "name": "Proffesponal training plan",
+        "comment": "Esigned to optimize performance and achieve specific goals."
+    },
+    {
+        "id": 4,
+        "name": "Unique to your needs",
+        "comment": "A professional training plan tailored to your needs is customized based on your specific goals, fitness level, and constraints, ensuring optimal progress and results"
+    }
+]

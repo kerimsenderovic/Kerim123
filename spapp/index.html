@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page</title>
+    <meta charset="utf-8" />
+    
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fitness</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../spapp/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../spapp/css/style.css" type="text/css">
+    <link href="../spapp/css/style.css" rel="stylesheet" />
+    <link href="../spapp/css/spapp.css" rel="stylesheet" />
+    <style>
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        .nav-menu li {
+            margin-right: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="col-sm-5">
+        <nav role="navigation">
+            <ul class="nav-menu">
+                <li><a href="#page1">Home</a></li>
+                <li><a href="#page2">Services</a></li>
+                <li><a href="#page3">About Us</a></li>
+                <li><a href="#page4">Contact</a></li>
+                <li><a href="#page5">Our Team</a></li>
+                <li><a href="#page6">Login</a></li>
+                <li><a href="#page7">Registration</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <main id="spapp" role="main">
+                    <section id="page1" data-load="page1.html"></section>
+                    <section id="page2" data-load="page2.html"></section>
+                    <section id="page3" data-load="page3.html"></section>
+                    <section id="page4" data-load="page4.html"></section>
+                    <section id="page5" data-load="page5.html"></section>
+                    <section id="page6" data-load="page6.html"></section>
+                    <section id="page7" data-load="page7.html"></section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    
+    
+    <script src="../spapp/js/jquery.min.js"></script>
+    <script src="../spapp/js/jquery.spapp.min.js"></script>
+    <script>
+        var app = $.spapp({
+            defaultView: "#page1",
+            templateDir: "./views/",
+        });
+
+        app.run();
+    </script>
+
+
