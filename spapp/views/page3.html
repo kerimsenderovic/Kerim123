@@ -21,40 +21,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Why chose us?</span>
+                        <span>Why choose us?</span>
                         <h2>PUSH YOUR LIMITS FORWARD</h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="cs-item">
-                        <span class="flaticon-034-stationary-bike"></span>
-                        <h4>Modern equipment</h4>
-                        <p>Modern equipment seamlessly integrates cutting-edge technology to enhance efficiency, precision, and productivity, revolutionizing industries and shaping the future of innovation.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="cs-item">
-                        <span class="flaticon-033-juice"></span>
-                        <h4>Healthy nutrition plan</h4>
-                        <p>Embraces variety, moderation, and mindful eating habits to sustain long-term health benefits.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="cs-item">
-                        <span class="flaticon-002-dumbell"></span>
-                        <h4>Proffesponal training plan</h4>
-                        <p>Esigned to optimize performance and achieve specific goals.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="cs-item">
-                        <span class="flaticon-014-heart-beat"></span>
-                        <h4>Unique to your needs</h4>
-                        <p>A professional training plan tailored to your needs is customized based on your specific goals, fitness level, and constraints, ensuring optimal progress and results</p>
-                    </div>
-                </div>
+            <div class="row" id="why-choose-us-container">
+                <!-- Why choose us items will be populated here -->
             </div>
         </div>
     </section>
@@ -203,58 +176,18 @@
     <!-- Banner Section End -->
 
     <!-- Testimonial Section Begin -->
-    <section class="testimonial-section spad">
+    <section class="testimonial-section spad" id="testimonial-container">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <span>Testimonial</span>
-                        <h2>Our cilent say</h2>
+                        <h2>Our clients say</h2>
                     </div>
                 </div>
             </div>
             <div class="ts_slider owl-carousel">
-                <div class="ts_item">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="ti_pic">
-                                <img src="img/testimonial/testimonial-1.jpg" alt="">
-                            </div>
-                            <div class="ti_text">
-                                <p>I absolutely love our gym! The variety of classes, state-of-the-art equipment,<br /> and supportive community make it the perfect 
-                                    place to reach my fitness<br /> goals and stay motivated.</p>
-                                <h5>Marshmello Gomez</h5>
-                                <div class="tt-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="ts_item">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="ti_pic">
-                                <img src="img/testimonial/testimonial-2.jpg" alt="">
-                            </div>
-                            <div class="ti_text">
-                                <p>I've been blown away by the results I've achieved since joining our gym.<br /> The expert guidance from the trainers, coupled with the welcoming atmosphere, has truly transformed<br /> my approach to fitness.</p>
-                                <h5>Marshmello Gomez</h5>
-                                <div class="tt-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Testimonials will be populated dynamically here -->
             </div>
         </div>
     </section>
@@ -347,14 +280,95 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="../spapp/js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/masonry.pkgd.min.js"></script>
-    <script src="../js/jquery.barfiller.js"></script>
-    <script src="../js/jquery.slicknav.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/jquery-3.3.1.min.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/bootstrap.min.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/jquery.magnific-popup.min.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/masonry.pkgd.min.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/jquery.barfiller.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/jquery.slicknav.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/owl.carousel.min.js"></script>
+    <script src="http://localhost/Kerim123/spapp/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+    // Fetch data for "Why choose us?" section from backend
+    $.get('http://localhost/Kerim123/gym-backend/get_training.php', function (response) {
+        console.log(response); // Log the response to inspect it
+        var chooseUsItems = response;
+        if (Array.isArray(chooseUsItems)) {
+            // Populate the "Why choose us?" items
+            populateChooseUsItems(chooseUsItems);
+        } else {
+            console.error("Invalid response format:", chooseUsItems);
+        }
+    }).fail(function (xhr, status, error) {
+        console.error("Error fetching data:", error);
+    });
+});
+
+function populateChooseUsItems(chooseUsItems) {
+    var container = $('#why-choose-us-container');
+    container.empty();
+    chooseUsItems.forEach(function (item) {
+        var html = `
+            <div class="col-lg-3 col-sm-6">
+                <div class="cs-item">
+                    <span class="${item.flaticon}"></span>
+                    <h4>${item.name}</h4>
+                    <p>${item.comment}</p>
+                </div>
+            </div>`;
+        container.append(html);
+    });
+}
+    </script>
+
+<script>
+    $(document).ready(function () {
+        // Fetch data for testimonial section from backend
+        $.get('http://localhost/Kerim123/gym-backend/get_comment.php', function (response) {
+            console.log(response); // Log the response to inspect it
+            var comments = response;
+            if (Array.isArray(comments)) {
+                // Populate the testimonial section
+                populateTestimonials(comments);
+            } else {
+                console.error("Invalid response format:", comments);
+            }
+        }).fail(function (xhr, status, error) {
+            console.error("Error fetching data:", error);
+        });
+    });
+    
+    function populateTestimonials(comments) {
+        var container = $('.ts_slider');
+        container.empty();
+        comments.forEach(function (comment) {
+            var html = `
+                <div class="ts_item">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="ti_text">
+                                <p>${comment.comment}</p>
+                                <h5>${comment.name}</h5>
+                                <div class="tt-rating">
+                                    ${generateStars(comment.rating)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+            container.append(html);
+        });
+    }
+    
+    function generateStars(rating) {
+        var stars = '';
+        for (var i = 0; i < rating; i++) {
+            stars += '<i class="fa fa-star"></i>';
+        }
+        return stars;
+    }
+</script>
 
 
 </body>
