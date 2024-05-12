@@ -309,7 +309,7 @@
 <script>
     $(document).ready(function () {
         // Fetch pricing plan data from backend
-        $.get('http://localhost/Kerim123/gym-backend/get_program.php', function (response) {
+        $.get('http://localhost/Kerim123/gym-backend/program', function (response) {
             console.log(response); // Log the response to inspect it
             var pricingPlans = response;
             if (Array.isArray(pricingPlans)) {
@@ -352,8 +352,7 @@ function populatePricingPlanItems(pricingPlans) {
         html += `<li>${feature}</li>`;
       });
     } else {
-      // Handle empty features array (optional)
-      // html += '<li>No features included</li>';
+      
     }
     
     html += `</ul>

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../../config.php";
+require_once __DIR__ . "/../config.php";
 
 class BaseDao {
     protected $connection;
@@ -23,27 +23,13 @@ class BaseDao {
             throw $e;
         }
     }
-    public function getTrainers() {
-        $query = "SELECT * FROM trainers";
-        return $this->query($query, []);
-    }
-    public function getPrograms() {
-        $query = "SELECT * FROM program";
-        return $this->query($query, []);
-    }
-    public function getTraining() {
-        $query = "SELECT * FROM training";
-        return $this->query($query, []);
-    }
+    
     protected function query($query, $params) {
         $statement = $this->connection->prepare($query);
         $statement->execute($params);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getComments() {
-        $query = "SELECT * FROM comments";
-        return $this->query($query, []);
-    }
+    
     protected function query_unique($query, $params) {
         $results = $this->query($query, $params);
         return reset($results);

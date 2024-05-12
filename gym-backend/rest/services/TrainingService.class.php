@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../dao/TrainingDao.class.php';
 
 class TrainingService {
@@ -8,8 +9,8 @@ class TrainingService {
         $this->training_dao = new TrainingDao();
     }
 
-    // Fetch all trainings from the database using TrainingDao
-    public function get_trainings() {
+    public function getTraining() {
+        // Call the add_training method of TrainingDao to add the training
         return $this->training_dao->get_trainings();
     }
 }
