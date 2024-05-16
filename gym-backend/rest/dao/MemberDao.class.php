@@ -50,12 +50,17 @@ class MemberDao extends BaseDao {
         $query = "UPDATE members SET firstName = :firstName, lastName = :lastName, email = :email, password=:password
                   WHERE id = :id";
         $this->execute($query, [
-            'firstName' => $member['first_name'],
-            'lastName' => $member['last_name'],
-            'email' => $member['created_at'],
-            'password' => $member['email'],
+            'firstName' => $member['firstName'],
+            'lastName' => $member['lastName'],
+            'email' => $member['email'],
+            'password' => $member['password'],
             'id' => $id
         ]);
+    }
+    public function get_all_members(){
+        $query= "SELECT * 
+                FROM members;";
+        return $this->query($query,[]);
     }
     
 }

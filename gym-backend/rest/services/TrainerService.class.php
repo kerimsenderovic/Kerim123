@@ -7,8 +7,10 @@ class TrainerService {
     public function __construct() {
         $this->trainer_dao = new TrainerDao();
     }
-
-    // Fetch all trainers from the database using TrainerDao
+    public function add_trainer($trainer){
+        return $this->trainer_dao->add_trainer($trainer);
+    }
+    
     public function get_trainers() {
         return $this->trainer_dao->get_trainers();
     }

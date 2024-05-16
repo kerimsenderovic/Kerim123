@@ -290,8 +290,8 @@
     <script src="http://localhost/Kerim123/spapp/js/main.js"></script>
     <script>
         $(document).ready(function () {
-    // Fetch data for "Why choose us?" section from backend
-    $.get('http://localhost/Kerim123/gym-backend/get_training.php', function (response) {
+    
+    $.get('http://localhost/Kerim123/gym-backend/training', function (response) {
         console.log(response); // Log the response to inspect it
         var chooseUsItems = response;
         if (Array.isArray(chooseUsItems)) {
@@ -312,7 +312,7 @@ function populateChooseUsItems(chooseUsItems) {
         var html = `
             <div class="col-lg-3 col-sm-6">
                 <div class="cs-item">
-                    <span class="${item.flaticon}"></span>
+                    
                     <h4>${item.name}</h4>
                     <p>${item.comment}</p>
                 </div>
@@ -325,7 +325,7 @@ function populateChooseUsItems(chooseUsItems) {
 <script>
     $(document).ready(function () {
         // Fetch data for testimonial section from backend
-        $.get('http://localhost/Kerim123/gym-backend/get_comment.php', function (response) {
+        $.get('http://localhost/Kerim123/gym-backend/comment', function (response) {
             console.log(response); // Log the response to inspect it
             var comments = response;
             if (Array.isArray(comments)) {

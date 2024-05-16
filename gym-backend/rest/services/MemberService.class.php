@@ -8,6 +8,7 @@ class MemberService {
         $this->member_dao = new MemberDao();
     }
     public function add_member($member){
+        $member['password']= password_hash($member['password'],PASSWORD_BCRYPT);
         return $this->member_dao->add_member($member);
     }
     public function get_members_paginated($offset, $limit, $search, $order_column, $order_direction){
@@ -30,5 +31,8 @@ class MemberService {
         unset($member['id']);
 
         $this->member_dao->edit_member($id, $member);
+    }
+    public function get_all_members(){
+        return $this->member_dao->get_all_members();
     }
 }
