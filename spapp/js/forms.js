@@ -13,7 +13,7 @@ $("#tutorial-form").validate({
         var data = serializeForm(form);
         
         $.post(
-            Constants.API_BASE_URL + "members/add",
+            _BAConstants.get_api_base_url() + "members/add",
             data,
             function(response) {
                 users.push(data);
@@ -58,7 +58,7 @@ var MemberService = {
     reload_member_datatable: function () {
         Utils.get_datatable(
             "#tutorial-table",
-            Constants.API_BASE_URL + "members",
+            Constants.get_api_base_url() + "members",
             [
                 { data: "action" },
                 { data: "id" },

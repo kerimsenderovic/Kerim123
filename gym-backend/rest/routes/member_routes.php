@@ -1,11 +1,32 @@
-<?php 
+<?php
+
 require_once __DIR__ . '/../services/MemberService.class.php';
-Flight::set('member_service', new MemberService());
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
+Flight::set('member_service', new MemberService());
+
 Flight::group('/members', function () {
 
+    
+    /**
+     * @OA\Get(
+     *      path="/members/info",
+     *      tags={"members"},
+     *      summary="Get members details",
+     *      security={
+     *          {"ApiKey": {}}   
+     *      },
+     *      @OA\Response(
+     *           response=200,
+     *           description="Member details"
+     *      )
+     * )
+     */
+    
+    Flight::route('GET /info', function() {
+        Flight::json(Flight::get('member_service')->get_member_by_id(Flight::get('user')->id));
+    });
 
     /**
      * @OA\Get(
@@ -14,14 +35,13 @@ Flight::group('/members', function () {
      *      summary="Get all members",
      *      @OA\Response(
      *           response=200,
-     *           description="Array of all members in the databases"
+     *           description="Array of all members in the database"
      *      )
      * )
      */
-
     Flight::route('GET /all',function(){
         $data = Flight::get('member_service')->get_all_members();
-        Flight::json($data,200);
+        Flight::json($data, 200);
     });
     
     /**
@@ -36,10 +56,9 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="member_id", example="1", description="Member ID")
      * )
      */
-
     Flight::route('GET /member',function(){
-        $params=Flight::request()->query;
-        $member=Flight::get('member_service')->get_member_by_id($params['member_id']);
+        $params = Flight::request()->query;
+        $member = Flight::get('member_service')->get_member_by_id($params['member_id']);
         Flight::json($member);
     });
 
@@ -55,26 +74,12 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="member_id", example="1", description="Member ID")
      * )
      */
-
-     Flight::route('GET /get/@member_id',function($member_id){
-        
-        $member=Flight::get('member_service')->get_member_by_id($member_id);
+    Flight::route('GET /get/@member_id',function($member_id){
+        $member = Flight::get('member_service')->get_member_by_id($member_id);
         Flight::json($member);
     });
 
     Flight::route('GET /', function () {
-        try {
-            $token = Flight::request()->getHeader("Authentication");
-            if(!$token)
-                Flight::halt(401, "Missing authentication header");
-
-            $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256'));
-
-            
-        } catch (\Exception $e) {
-            Flight::halt(401, $e->getMessage());
-        }
-    
         $payload = Flight::request()->query;
 
         $params = [
@@ -111,25 +116,22 @@ Flight::group('/members', function () {
      *      summary="Add member data to the database",
      *      @OA\Response(
      *           response=200,
-     *           description="Member data, excpetion if member is not added properly"
+     *           description="Member data, exception if member is not added properly"
      *      ),
      *      @OA\RequestBody(
-     *          decription="Member data payload",
+     *          description="Member data payload",
      *          @OA\JsonContent(
-     *           required={"firstName","lastName","email","password"},
-     *           @OA\Property(property="id",type="string", example="1", description="Member ID "),
-     *           @OA\Property(property="firstName",type="string", example="Some first name", description="Member first name "),
-     *           @OA\Property(property="lastName",type="string", example="Some last name", description="Member last name"),
-     *           @OA\Property(property="email",type="string", example="example@example.com", description="Member email"),
-     *           @OA\Property(property="password",type="string", example="something", description="Member password")
-     * 
+     *              required={"firstName","lastName","email","password"},
+     *              @OA\Property(property="id", type="string", example="1", description="Member ID "),
+     *              @OA\Property(property="firstName", type="string", example="Some first name", description="Member first name "),
+     *              @OA\Property(property="lastName", type="string", example="Some last name", description="Member last name"),
+     *              @OA\Property(property="email", type="string", example="example@example.com", description="Member email"),
+     *              @OA\Property(property="password", type="string", example="something", description="Member password")
      *          )
-     * 
      *      )
      * )
      */
-
-     Flight::route('POST /add', function () {
+    Flight::route('POST /add', function () {
         $payload = Flight::request()->data->getData();
     
         if ($payload['firstName'] == NULL) {
@@ -159,7 +161,6 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="member_id", example="1", description="Member ID")
      * )
      */
-
     Flight::route('DELETE /delete/@member_id', function ($member_id) {
         if ($member_id == NULL || $member_id == '') {
             Flight::halt(500, 'You have to provide a valid ID');
@@ -181,11 +182,12 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="member_id", example="1", description="Member ID")
      * )
      */
-    
     Flight::route('GET /@member_id', function ($member_id) {
         $member = Flight::get('member_service')->get_member_by_id($member_id);
 
         Flight::json($member);
     });
+
+
 
 });

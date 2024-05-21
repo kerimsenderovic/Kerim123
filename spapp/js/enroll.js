@@ -3,7 +3,7 @@ var idCounter = 1;
 
 $(document).ready(function() {
     // Fetch trainers data from backend and populate the select dropdown
-    $.get(Constants.API_BASE_URL + "get_trainers.php", function(response) {
+    $.get(Constants.get_api_base_url() + "get_trainers.php", function(response) {
         users = response;
         var select = $("#select");
         select.empty();
@@ -25,7 +25,7 @@ $(document).ready(function() {
             var data = serializeForm(form);
 
             $.post(
-                Constants.API_BASE_URL + "add_trainer.php",
+                Constants.get_api_base_url() + "add_trainer.php",
                 data,
                 function (response) {
                     users.push(response);
