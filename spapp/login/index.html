@@ -88,16 +88,18 @@
       }
         Utils.block_ui("#login-form-container");
 
-        RestClient.post(
-          'auth/login',
+        RestClient.post(  'auth/login',
           data,
           function (response) {
             Utils.unblock_ui("#login-form-container");
-            Utils.set_to_localstorage("user", response);
+            console.log(response);
+            const userJSON = JSON.stringify(response);
+
+            Utils.set_to_localstorage("user", userJSON);
             window.location = "../";
           },
             function (error) {
-            Utils.unblock_ui("#login-form-container");
+            Utils.unblock_ui("#login-form-container");s
             toastr.error(error.responseText);
           }
         )

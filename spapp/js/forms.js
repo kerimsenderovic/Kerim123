@@ -13,7 +13,7 @@ $("#tutorial-form").validate({
         var data = serializeForm(form);
         
         $.post(
-            _BAConstants.get_api_base_url() + "members/add",
+            Constants.get_api_base_url() + "members/add",
             data,
             function(response) {
                 users.push(data);

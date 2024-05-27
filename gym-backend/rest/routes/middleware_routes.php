@@ -2,7 +2,6 @@
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-use Flight;
 
 Flight::route('/*', function() {
     // Define public routes that don't require authentication
@@ -20,6 +19,11 @@ Flight::route('/*', function() {
         $token = Flight::request()->getHeader("Authentication");
         if (!$token) {
             Flight::halt(401, "Missing authentication header");
+        }
+
+        // Remove 'Bearer ' prefix if exists
+        if (strpos($token, 'Bearer ') === 0) {
+            $token = substr($token, 7);
         }
 
         // Decode the JWT token
