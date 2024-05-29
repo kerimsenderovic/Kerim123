@@ -17,7 +17,7 @@ Flight::route('GET /trainer', function(){
     $trainers = Flight::get('trainer_service')->getTrainers();
 
     // Set response header to indicate JSON content
-    header('Content-Type: application/json');
+    //header('Content-Type: application/json');
 
     // Send JSON response
     Flight::json($trainers);
