@@ -5,7 +5,7 @@ require __DIR__ . '/../../../vendor/autoload.php';
 if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1'){
     define('BASE_URL', 'http://localhost/Kerim123/gym-backend/');
 } else {
-    define('BASE_URL', 'https://oyster-app-3s7wz.ondigitalocean.app/live-backend/');
+    define('BASE_URL', 'https://stingray-app-bhock.ondigitalocean.app/live-backend/');
 }
 
 //define('BASE_URL', 'http://localhost/Kerim123/gym-backend/');
