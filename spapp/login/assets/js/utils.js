@@ -1,4 +1,3 @@
-
 var Utils = {
   init_spapp: function () {
     var app = $.spapp({
@@ -44,39 +43,40 @@ var Utils = {
     draw_callback = null,
     page_length = 10
   ) {
-    console.log("Table ID:", table_id); // Debugging
-if ($.fn.dataTable.isDataTable(table_id)) {
-    details_callback = false;
-    $(table_id).DataTable().destroy();
-}
-var table = $(table_id).DataTable({
-    order: [
+    if ($.fn.dataTable.isDataTable(table_id)) {
+      details_callback = false;
+      $(table_id)
+        .DataTable()
+        .destroy();
+    }
+    var table = $(table_id).DataTable({
+      order: [
         sort_column == null ? 1 : sort_column,
         sort_order == null ? "desc" : sort_order,
-    ],
-    orderClasses: false,
-    columns: columns,
-    columnDefs: [{ orderable: false, targets: disable_sort }],
-    processing: true,
-    serverSide: true,
-    ajax: {
+      ],
+      orderClasses: false,
+      columns: columns,
+      columnDefs: [{ orderable: false, targets: disable_sort }],
+      processing: true,
+      serverSide: true,
+      ajax: {
         url: url,
         type: "GET",
         headers: {
-            "Authentication": Utils.get_from_localstorage("user").token
+          "Authentication": Utils.get_from_localstorage("user").token
         }
-    },
-    lengthMenu: [
+      },
+      lengthMenu: [
         [5, 10, 15, 50, 100, 200, 500, 5000],
         [5, 10, 15, 50, 100, 200, 500, "ALL"],
-    ],
-    pageLength: page_length,
-    initComplete: function () {
+      ],
+      pageLength: page_length,
+      initComplete: function () {
         if (callback) callback();
-    },
-    drawCallback: function (settings) {
+      },
+      drawCallback: function (settings) {
         if (draw_callback) draw_callback();
-    },
-});
+      },
+    });
   },
 };

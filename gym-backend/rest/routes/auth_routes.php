@@ -1,4 +1,5 @@
 <?php 
+
 require_once __DIR__ . '/../services/AuthService.class.php';
 
 use Firebase\JWT\JWT;
@@ -52,6 +53,7 @@ Flight::group('/auth', function() {
         Flight::json(
             array_merge($member, ['token' => $token])
         );
+        
     });
 
     /**
@@ -85,4 +87,5 @@ Flight::group('/auth', function() {
         }
     });
 });
+
 ?>
