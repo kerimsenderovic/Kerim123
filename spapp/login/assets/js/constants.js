@@ -4,7 +4,7 @@ var Constants = {
     if (location.hostname == "localhost") {
       return "http://localhost/Kerim123/gym-backend/";
     } else {
-      return "https://lionfish-app-d4v7d.ondigitalocean.app";
+      return "https://stingray-app-bhock.ondigitalocean.app/gym-backend/";
     }
   },
 };
