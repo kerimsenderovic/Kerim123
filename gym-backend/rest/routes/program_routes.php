@@ -16,10 +16,12 @@ Flight::set('program_service', new ProgramService());
 Flight::route('GET /program', function(){
     $programs = Flight::get('program_service')->getPrograms();
 
+    
     // Set response header to indicate JSON content
     header('Content-Type: application/json');
 
     // Send JSON response
     Flight::json($programs);
 });
+
 ?>

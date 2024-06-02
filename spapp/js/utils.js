@@ -1,7 +1,7 @@
 var Utils = {
   init_spapp: function () {
     var app = $.spapp({
-      templateDir: "./pages/",
+      templateDir: "./views/",
     });
     app.run();
   },

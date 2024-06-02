@@ -308,20 +308,21 @@
   <script src="../spapp/js/main.js"></script>
   <script>
       $(document).ready(function () {
-         
-          $.get('http://localhost/Kerim123/gym-backend/program', function (response) {
-              console.log(response); 
-              var pricingPlans = response;
-              if (Array.isArray(pricingPlans)) {
-                  
-                  populatePricingPlanItems(pricingPlans);
-              } else {
-                  console.error("Invalid response format:", pricingPlans);
-              }
-          }).fail(function (xhr, status, error) {
-              console.error("Error fetching data:", error);
-          });
-      });
+        // Fetch data for the program section from the backend
+        RestClient.get('program')
+            .then(function (pricingPlans) {
+                console.log("Data fetched successfully:", pricingPlans);
+                if (Array.isArray(pricingPlans)) {
+                    // Populate the pricing plan items
+                    populatePricingPlanItems(pricingPlans);
+                } else {
+                    console.error("Invalid response format:", pricingPlans);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error fetching data:", error);
+            });
+    });;
   
       
   function populatePricingPlanItems(pricingPlans) {

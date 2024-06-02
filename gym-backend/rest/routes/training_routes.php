@@ -7,6 +7,9 @@ Flight::set('training_service', new TrainingService());
  *      path="/training",
  *      tags={"trainings"},
  *      summary="Get all trainings",
+ *      security={
+ *          {"ApiKey": {}}   
+ *      },    
  *      @OA\Response(
  *           response=200,
  *           description="Array of all trainings"
@@ -16,9 +19,9 @@ Flight::set('training_service', new TrainingService());
 Flight::route('GET /training', function(){
     $trainings = Flight::get('training_service')->getTraining();
 
-   /*  // Set response header to indicate JSON content
+     // Set response header to indicate JSON content
     header('Content-Type: application/json');
- */
+ 
     // Send JSON response
     Flight::json($trainings);
 });

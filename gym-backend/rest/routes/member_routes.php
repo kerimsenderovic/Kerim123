@@ -15,7 +15,7 @@ Flight::group('/members', function () {
      *      tags={"members"},
      *      summary="Get members details",
      *      security={
-     *          {"ApiKey": {}}   
+     *          {"ApiKey": {}}  
      *      },
      *      @OA\Response(
      *           response=200,
