@@ -520,3 +520,99 @@ Stack trace:
 #11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
 #12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
 #13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
+ErrorException: Attempt to read property "id" on null in C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php:28
+Stack trace:
+#0 C:\xampp\htdocs\Kerim123\gym-backend\rest\routes\member_routes.php(28): flight\Engine->handleError(2, 'Attempt to read...', 'C:\\xampp\\htdocs...', 28)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(354): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Object(Closure), Array)
+#4 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(522): flight\core\Dispatcher->execute(Object(Closure), Array)
+#5 [internal function]: flight\Engine->_start()
+#6 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(379): call_user_func_array(Array, Array)
+#7 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(287): flight\core\Dispatcher->invokeCallable(Array, Array)
+#8 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(131): flight\core\Dispatcher->execute(Array, Array)
+#9 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\core\Dispatcher.php(95): flight\core\Dispatcher->runEvent('start', Array)
+#10 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Engine.php(113): flight\core\Dispatcher->run('start', Array)
+#11 C:\xampp\htdocs\Kerim123\gym-backend\vendor\flightphp\core\flight\Flight.php(119): flight\Engine->__call('start', Array)
+#12 C:\xampp\htdocs\Kerim123\gym-backend\index.php(11): Flight::__callStatic('start', Array)
+#13 {main}
