@@ -16,3 +16,5 @@ $openapi = \OpenApi\Generator::scan(['../../../rest/routes', './']);
 header('Content-Type: application/x-yaml');
 echo $openapi->toYaml();
 ?>
+
+
