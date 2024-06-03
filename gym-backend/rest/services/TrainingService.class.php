@@ -10,7 +10,7 @@ class TrainingService {
     }
 
     public function getTraining() {
-        // Call the add_training method of TrainingDao to add the training
+        
         return $this->training_dao->get_trainings();
     }
 }
