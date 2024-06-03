@@ -7,6 +7,9 @@ Flight::set('program_service', new ProgramService());
  *      path="/program",
  *      tags={"programs"},
  *      summary="Get all programs",
+ *      security={
+ *          {"ApiKey": {}}  
+     *      },
  *      @OA\Response(
  *           response=200,
  *           description="Array of all programs"
@@ -16,7 +19,6 @@ Flight::set('program_service', new ProgramService());
 Flight::route('GET /program', function(){
     $programs = Flight::get('program_service')->getPrograms();
 
-    
     // Set response header to indicate JSON content
     header('Content-Type: application/json');
 

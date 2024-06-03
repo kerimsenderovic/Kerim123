@@ -8,7 +8,6 @@ Flight::set('member_service', new MemberService());
 
 Flight::group('/members', function () {
 
-    
     /**
      * @OA\Get(
      *      path="/members/info",
@@ -23,7 +22,6 @@ Flight::group('/members', function () {
      *      )
      * )
      */
-    
     Flight::route('GET /info', function() {
         Flight::json(Flight::get('member_service')->get_member_by_id(Flight::get('user')->id));
     });
@@ -33,22 +31,28 @@ Flight::group('/members', function () {
      *      path="/members/all",
      *      tags={"members"},
      *      summary="Get all members",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Array of all members in the database"
      *      )
      * )
      */
-    Flight::route('GET /all',function(){
+    Flight::route('GET /all', function(){
         $data = Flight::get('member_service')->get_all_members();
         Flight::json($data, 200);
     });
-    
+
     /**
      * @OA\Get(
      *      path="/members/member",
      *      tags={"members"},
      *      summary="Get member by id",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Member data, or false if member does not exist"
@@ -56,7 +60,7 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="query", name="member_id", example="1", description="Member ID")
      * )
      */
-    Flight::route('GET /member',function(){
+    Flight::route('GET /member', function(){
         $params = Flight::request()->query;
         $member = Flight::get('member_service')->get_member_by_id($params['member_id']);
         Flight::json($member);
@@ -67,6 +71,9 @@ Flight::group('/members', function () {
      *      path="/members/get/{member_id}",
      *      tags={"members"},
      *      summary="Get member by id",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Member data, or false if member does not exist"
@@ -74,7 +81,7 @@ Flight::group('/members', function () {
      *      @OA\Parameter(@OA\Schema(type="number"), in="path", name="member_id", example="1", description="Member ID")
      * )
      */
-    Flight::route('GET /get/@member_id',function($member_id){
+    Flight::route('GET /get/@member_id', function($member_id){
         $member = Flight::get('member_service')->get_member_by_id($member_id);
         Flight::json($member);
     });
@@ -114,6 +121,9 @@ Flight::group('/members', function () {
      *      path="/members/add",
      *      tags={"members"},
      *      summary="Add member data to the database",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Member data, exception if member is not added properly"
@@ -154,6 +164,9 @@ Flight::group('/members', function () {
      *      path="/members/delete/{member_id}",
      *      tags={"members"},
      *      summary="Delete member by id",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Deleted member data or 500 status code otherwise"
@@ -175,6 +188,9 @@ Flight::group('/members', function () {
      *      path="/members/{member_id}",
      *      tags={"members"},
      *      summary="Get member by id",
+     *      security={
+     *          {"ApiKey": {}}  
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Member data, or false if member does not exist"
@@ -187,7 +203,5 @@ Flight::group('/members', function () {
 
         Flight::json($member);
     });
-
-
 
 });
