@@ -4,7 +4,7 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 Flight::route('/*', function() {
-    // Exclude the /program route from authentication
+    
     if (strpos(Flight::request()->url, '/auth/login') === 0 || strpos(Flight::request()->url, '/program') === 0 
     ) {
         return TRUE;
