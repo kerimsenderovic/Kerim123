@@ -1,25 +1,28 @@
 <?php 
-require_once __DIR__ . '/../services/TrainerService.class.php';
-Flight::set('trainer_service', new TrainerService());
+require_once __DIR__ . '/../services/TrainingService.class.php';
+Flight::set('training_service', new TrainingService());
 
 /**
  * @OA\Get(
- *      path="/trainer",
- *      tags={"trainers"},
- *      summary="Get all trainers",
+ *      path="/training",
+ *      tags={"trainings"},
+ *      summary="Get all trainings",
+ *      security={
+ *          {"ApiKey": {}}   
+ *      },    
  *      @OA\Response(
  *           response=200,
- *           description="Array of all trainers"
+ *           description="Array of all trainings"
  *      )
  * )
  */
-Flight::route('GET /trainer', function(){
-    $trainers = Flight::get('trainer_service')->getTrainers();
+Flight::route('GET /training', function(){
+    $trainings = Flight::get('training_service')->getTraining();
 
-    // Set response header to indicate JSON content
+     // Set response header to indicate JSON content
     header('Content-Type: application/json');
-
+ 
     // Send JSON response
-    Flight::json($trainers);
+    Flight::json($trainings);
 });
 ?>

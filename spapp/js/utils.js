@@ -1,7 +1,7 @@
 var Utils = {
   init_spapp: function () {
     var app = $.spapp({
-      templateDir: "./pages/",
+      templateDir: "./views/",
     });
     app.run();
   },
@@ -45,12 +45,14 @@ var Utils = {
   ) {
     if ($.fn.dataTable.isDataTable(table_id)) {
       details_callback = false;
-      $(table_id).DataTable().destroy();
-  }
-  var table = $(table_id).DataTable({
+      $(table_id)
+        .DataTable()
+        .destroy();
+    }
+    var table = $(table_id).DataTable({
       order: [
-          sort_column == null ? 1 : sort_column,
-          sort_order == null ? "desc" : sort_order,
+        sort_column == null ? 1 : sort_column,
+        sort_order == null ? "desc" : sort_order,
       ],
       orderClasses: false,
       columns: columns,
@@ -58,23 +60,23 @@ var Utils = {
       processing: true,
       serverSide: true,
       ajax: {
-          url: url,
-          type: "GET",
-          headers: {
-              "Authentication": Utils.get_from_localstorage("user").token
-          }
+        url: url,
+        type: "GET",
+        headers: {
+          "Authentication": Utils.get_from_localstorage("user").token
+        }
       },
       lengthMenu: [
-          [5, 10, 15, 50, 100, 200, 500, 5000],
-          [5, 10, 15, 50, 100, 200, 500, "ALL"],
+        [5, 10, 15, 50, 100, 200, 500, 5000],
+        [5, 10, 15, 50, 100, 200, 500, "ALL"],
       ],
       pageLength: page_length,
       initComplete: function () {
-          if (callback) callback();
+        if (callback) callback();
       },
       drawCallback: function (settings) {
-          if (draw_callback) draw_callback();
+        if (draw_callback) draw_callback();
       },
-  });
+    });
   },
 };

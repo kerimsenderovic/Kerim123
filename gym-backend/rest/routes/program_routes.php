@@ -7,6 +7,9 @@ Flight::set('program_service', new ProgramService());
  *      path="/program",
  *      tags={"programs"},
  *      summary="Get all programs",
+ *      security={
+ *          {"ApiKey": {}}  
+     *      },
  *      @OA\Response(
  *           response=200,
  *           description="Array of all programs"
@@ -22,4 +25,5 @@ Flight::route('GET /program', function(){
     // Send JSON response
     Flight::json($programs);
 });
+
 ?>

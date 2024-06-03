@@ -1,4 +1,5 @@
 <?php 
+
 require_once __DIR__ . '/../services/AuthService.class.php';
 
 use Firebase\JWT\JWT;
@@ -30,29 +31,29 @@ Flight::group('/auth', function() {
     Flight::route('POST /login', function() {
         $payload = Flight::request()->data->getData();
 
-        $patient = Flight::get('auth_service')->get_user_by_email($payload['email']);
+        $member = Flight::get('auth_service')->get_user_by_email($payload['email']);
 
-        if(!$patient || !password_verify($payload['password'], $patient['password']))
+        if(!$member || !password_verify($payload['password'], $member['password']))
             Flight::halt(500, "Invalid username or password");
 
-        unset($patient['password']);
+        unset($member['password']);
         
         $jwt_payload = [
-            'user' => $patient,
-            'iat' => time(),
-            // If this parameter is not set, JWT will be valid for life. This is not a good approach
-            'exp' => time() + (60 * 60 * 24) // valid for day
+            'user' => $member,
+            'iat' => time(), // Issued at time
+            'exp' => time() + (60 * 60 * 24), // Expires after a day
         ];
 
         $token = JWT::encode(
             $jwt_payload,
-            JWT_SECRET,
+            Config::JWT_SECRET(),
             'HS256'
         );
 
         Flight::json(
-            array_merge($patient, ['token' => $token])
+            array_merge($member, ['token' => $token])
         );
+        
     });
 
     /**
@@ -72,10 +73,10 @@ Flight::group('/auth', function() {
     Flight::route('POST /logout', function() {
         try {
             $token = Flight::request()->getHeader("Authentication");
-            if(!$token){
-                Flight::halt(401, "Missing authentication header");}
+            if(!$token)
+                Flight::halt(401, "Missing authentication header");
 
-            $decoded_token = JWT::decode($token, new Key(JWT_SECRET, 'HS256'));
+            $decoded_token = JWT::decode($token, new Key(Config::JWT_SECRET(), 'HS256'));
 
             Flight::json([
                 'jwt_decoded' => $decoded_token,
@@ -86,4 +87,5 @@ Flight::group('/auth', function() {
         }
     });
 });
+
 ?>

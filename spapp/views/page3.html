@@ -280,64 +280,75 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="http://localhost/Kerim123/spapp/js/jquery-3.3.1.min.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/bootstrap.min.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/jquery.magnific-popup.min.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/masonry.pkgd.min.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/jquery.barfiller.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/jquery.slicknav.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/owl.carousel.min.js"></script>
-    <script src="http://localhost/Kerim123/spapp/js/main.js"></script>
-    <script>
+    <script src="../spapp/js/jquery-3.3.1.min.js"></script>
+    <script src="../spapp/js/bootstrap.min.js"></script>
+    <script src="../spapp/js/jquery.magnific-popup.min.js"></script>
+    <script src="../spapp/js/masonry.pkgd.min.js"></script>
+    <script src="../spapp/js/jquery.barfiller.js"></script>
+    <script src="../spapp/js/jquery.slicknav.js"></script>
+    <script src="../spapp/js/owl.carousel.min.js"></script>
+    <script src="../spapp/js/main.js"></script>
+    <script src="../spapp/js/jquery.min.js"></script>
+      <script src="../spapp/js/bootstrap.bundle.min.js"></script>
+      <script src="../spapp/js/block-ui.js"></script>
+      <script src="../spapp/js/jquery.validate.min.js"></script>
+      <script src="../spapp/js/dataTables.js"></script>
+      <script src="../spapp/js/dataTables.bootstrap5.js"></script>
+      <script src="../spapp/js/utils.js"></script>
+      <script src="../spapp/js/forms.js"></script>
+      <script>
         $(document).ready(function () {
-    
-    $.get('http://localhost/Kerim123/gym-backend/training', function (response) {
-        console.log(response); // Log the response to inspect it
-        var chooseUsItems = response;
-        if (Array.isArray(chooseUsItems)) {
-            // Populate the "Why choose us?" items
-            populateChooseUsItems(chooseUsItems);
-        } else {
-            console.error("Invalid response format:", chooseUsItems);
+        // Fetch training data from backend
+        RestClient.get('training')
+            .then(function (trainingData) {
+                console.log("Data fetched successfully:", trainingData);
+                if (Array.isArray(trainingData)) {
+                    // Populate the "Why choose us?" items
+                    populateChooseUsItems(trainingData);
+                } else {
+                    console.error("Invalid response format:", trainingData);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error fetching training data:", error);
+            });
+    });
+        
+        function populateChooseUsItems(trainingData) {
+            var container = $('#why-choose-us-container');
+            container.empty();
+            trainingData.forEach(function (trainingItem) {
+                var html = `
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="cs-item">
+                            <h4>${trainingItem.name}</h4>
+                            <p>${trainingItem.comment}</p>
+                        </div>
+                    </div>`;
+                container.append(html);
+            });
         }
-    }).fail(function (xhr, status, error) {
-        console.error("Error fetching data:", error);
-    });
-});
-
-function populateChooseUsItems(chooseUsItems) {
-    var container = $('#why-choose-us-container');
-    container.empty();
-    chooseUsItems.forEach(function (item) {
-        var html = `
-            <div class="col-lg-3 col-sm-6">
-                <div class="cs-item">
-                    
-                    <h4>${item.name}</h4>
-                    <p>${item.comment}</p>
-                </div>
-            </div>`;
-        container.append(html);
-    });
-}
-    </script>
+        </script>
 
 <script>
     $(document).ready(function () {
         // Fetch data for testimonial section from backend
-        $.get('http://localhost/Kerim123/gym-backend/comment', function (response) {
-            console.log(response); // Log the response to inspect it
-            var comments = response;
-            if (Array.isArray(comments)) {
-                // Populate the testimonial section
-                populateTestimonials(comments);
-            } else {
-                console.error("Invalid response format:", comments);
-            }
-        }).fail(function (xhr, status, error) {
-            console.error("Error fetching data:", error);
-        });
+        RestClient.get('comment')
+            .then(function (comments) {
+                console.log("Data fetched successfully:", comments);
+                if (Array.isArray(comments)) {
+                    // Populate the testimonial section
+                    populateTestimonials(comments);
+                } else {
+                    console.error("Invalid response format:", comments);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error fetching data:", error);
+            });
     });
+
+    
     
     function populateTestimonials(comments) {
         var container = $('.ts_slider');
